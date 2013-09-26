@@ -1,0 +1,12 @@
+---
+- name: download wordpress theme
+  get_url:  url=https://files.rocksolidops.com/wordpress/themes/bonbon.tgz
+            dest=/srv/bonbon.tgz
+            sha256sum=e0c2cf5927ee5e96d6f64a95584368be6c8310e551bd11a784842b4edf6700a2
+
+- name: extract theme
+  command: chdir=/srv/wordpress/wp-content/themes
+            /bin/tar xvf /srv/bonbon.tgz creates=/srv/wordpress/wp-content/themes/bonbon
+
+- name: Change ownership of themes & plugins
+  file: path=/srv/wordpress/wp-content owner=wordpress group=wordpress state=directory recurse=yes

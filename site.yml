@@ -4,15 +4,18 @@
   accelerate: true
   user: "{{admin_name}}"
   sudo: true
-  # vars_files:
-  # - vars/secrets.yml
+  vars_files:
+  - vars/secrets.yml
 
   roles:
     # TODO idempotency
-    - firewall # make idempotent.
-    - bootstrap # make fw rule for accelerate idempotent
+    # - firewall # make idempotent.
+    # - bootstrap # make fw rule for accelerate idempotent
 
     - common
     - mysql
     - nginx
     - fpm
+    - wordpress
+
+    - wordpress-custom

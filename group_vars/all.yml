@@ -7,3 +7,19 @@ ntp_servers:
 - 1.pool.ntp.org
 - 2.pool.ntp.org
 - 3.pool.ntp.org
+
+# This is used for the nginx server configuration, but # access to the
+# Wordpress site is not restricted by a # named host.
+server_hostname: "*.devopsmtl.com"
+
+# Which version of Wordpress to deploy
+wp_version: 3.6.1
+# Find the SHA with `shasum -a 256 wordpress-3.6.1.tar.gz`
+wp_sha256sum: 6a44302b6375c5e97ad116913d84610f4f0589dd9906d5d9166e66e5146f94d1
+
+# These are the Wordpress database settings
+wp_db_name: wp_domtl
+wp_db_user: wp_domtl
+
+# You shouldn't need to change this.
+mysql_port: 3306
