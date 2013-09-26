@@ -1,0 +1,31 @@
+# {{ ansible_managed }}
+
+[mysqld]
+
+# Faster than 1 (ACID compliant).
+# Can lose up to 1 second if OS crash (safe for mysql crashes).
+innodb_flush_log_at_trx_commit = 2
+
+# ignore_builtin_innodb
+# plugin-load=innodb=ha_innodb_plugin.so;innodb_trx=ha_innodb_plugin.so;innodb_locks=ha_innodb_plugin.so;innodb_lock_waits=ha_innodb_plugin.so;innodb_cmp=ha_innodb_plugin.so;innodb_cmp_reset=ha_innodb_plugin.so;innodb_cmpmem=ha_innodb_plugin.so;innodb_cmpmem_reset=ha_innodb_plugin.so
+
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
+
+tmp_table_size = 64M
+max_heap_table_size = 64M
+skip-name-resolve
+
+log_slow_queries  = /var/log/mysql/mysql-slow.log
+long_query_time   = 2
+log-queries-not-using-indexes
+
+innodb_file_per_table = 1
+innodb_buffer_pool_size = 32M
+innodb_flush_method = O_DIRECT
+# innodb_log_file_size = 128M # Pain to change (previous file must be gone)
+innodb_stats_on_metadata = 0
+innodb_old_blocks_time = 1000
+
+server-id = 1
+log-bin = {{inventory_hostname_short}}

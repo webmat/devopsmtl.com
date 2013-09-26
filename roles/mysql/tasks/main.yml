@@ -1,0 +1,15 @@
+- name: install mysql server
+  apt: pkg=$item state=present
+  with_items:
+  - mysql-server
+  - python-mysqldb
+
+- name: start mysql service
+  service: name=mysql state=started enabled=true
+
+- name: mysql configuration file
+  template: src=etc/mysql/conf.d/overrides.cnf.j2
+            dest=/etc/mysql/conf.d/overrides.cnf
+  notify:
+  - restart mysql
+

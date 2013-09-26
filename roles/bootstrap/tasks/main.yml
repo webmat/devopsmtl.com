@@ -17,4 +17,4 @@
   lineinfile: dest=/etc/ssh/sshd_config regexp=^PermitRootLogin line=PermitRootLogin=no
   notify: restart ssh
 
-# - include: accelerate.yml tags=accelerate
+- include: accelerate.yml tags=accelerate

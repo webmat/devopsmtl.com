@@ -1,0 +1,7 @@
+- name: install nginx
+  apt: pkg=nginx state=present
+# TODO firewall idempotency
+# - name: allow HTTP connections
+#   command: ufw allow http
+- name: start nginx
+  service: name=nginx state=started enabled=true

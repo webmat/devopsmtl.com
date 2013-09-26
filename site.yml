@@ -1,11 +1,18 @@
 ---
 
 - hosts: all
-  # accelerate: true
+  accelerate: true
   user: "{{admin_name}}"
   sudo: true
+  # vars_files:
+  # - vars/secrets.yml
 
   roles:
-    # - firewall # figure out how to make idempotent.
-    - bootstrap
+    # TODO idempotency
+    - firewall # make idempotent.
+    - bootstrap # make fw rule for accelerate idempotent
+
     - common
+    - mysql
+    - nginx
+    - fpm

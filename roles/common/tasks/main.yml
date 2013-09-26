@@ -9,6 +9,8 @@
     - update-motd
     - cron
     - fail2ban
+    - curl
+    - nmap
     - htop
     - tree
     - iftop
@@ -19,6 +21,8 @@
     - vim
     - rsync
     - python-pip
+    - ruby
+    - ruby1.9.1-dev
 
 - name: ensure cron is running
   service: name=cron state=started
