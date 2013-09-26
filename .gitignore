@@ -43,3 +43,6 @@ dwsync.xml
 .CVS
 .idea
 css
+
+# Project-specific stuff. Mostly Ansible.
+hosts

@@ -1,0 +1,8 @@
+- name: Install ufw
+  apt: pkg=ufw state=present
+- name: deny connections by default
+  command: ufw default deny
+- name: allow SSH connections
+  command: ufw allow ssh
+- name: enable ufw
+  command: ufw --force enable

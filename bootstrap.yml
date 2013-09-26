@@ -1,0 +1,14 @@
+---
+# This Playbook is only useful for the first run on the node.
+# It mainly prevents root login and creates an admin account.
+
+- hosts: all
+  user: root
+  gather_facts: false
+
+  vars:
+    admin_name: dieu
+
+  roles:
+    - firewall
+    - bootstrap

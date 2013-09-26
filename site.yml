@@ -1,0 +1,11 @@
+---
+
+- hosts: all
+  # accelerate: true
+  user: "{{admin_name}}"
+  sudo: true
+
+  roles:
+    # - firewall # figure out how to make idempotent.
+    - bootstrap
+    - common
