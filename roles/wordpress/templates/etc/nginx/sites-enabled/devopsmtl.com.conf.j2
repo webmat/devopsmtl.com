@@ -12,6 +12,13 @@ server {
   location ~* /(?:uploads|files)/.*\.php$ {
     deny all;
   }
+  location /wp-(config|settings|activate).php {
+    deny all;
+  }
+  # Annoying broken request from bonbon theme
+  location ~* ^/tj-admin-options.css {
+    return 204;
+  }
 
   location / {
     index index.php index.html index.htm;

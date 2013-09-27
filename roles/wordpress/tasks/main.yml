@@ -15,10 +15,17 @@
 
 - name: Create uploads directory
   file: path=/srv/wordpress/wp-content/uploads state=directory
-        owner=wordpress group=wordpress mode=0644
+        owner=wordpress group=wordpress mode=0777 recurse=yes
 
 - name: Change ownership of Wordpress installation
   file: path=/srv/wordpress/ owner=wordpress group=wordpress state=directory recurse=yes
+
+- name: Remove unnecessary files
+  file: path=/srv/wordpress/$item state=absent
+  with_items:
+  - license.txt
+  - readme.html
+  - wp-config-sample.php
 
 - name: Create Wordpress database
   mysql_db: name={{ wp_db_name }} state=present
@@ -38,5 +45,5 @@
 - name: create the nginx vhost for the wordpress site
   template: src=etc/nginx/sites-enabled/devopsmtl.com.conf.j2
             dest=/etc/nginx/sites-enabled/devopsmtl.com.conf
-            owner=wordpress group=www-data mode=0640
+            owner=wordpress group=www-data mode=0644
   notify: reload nginx
