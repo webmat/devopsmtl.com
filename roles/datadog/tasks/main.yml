@@ -1,0 +1,6 @@
+---
+
+- name: Script to install the DataDog agent
+  template: src=root/install_datadog.sh dest=/root/install_datadog.sh mode=0700
+- name: Install DataDog agent
+  command: /root/install_datadog.sh creates=/usr/share/datadog/agent/

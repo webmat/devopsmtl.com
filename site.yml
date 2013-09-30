@@ -13,6 +13,7 @@
     # - bootstrap # make fw rule for accelerate idempotent
 
     - common
+    - datadog
     - mysql
     - nginx
     - fpm
