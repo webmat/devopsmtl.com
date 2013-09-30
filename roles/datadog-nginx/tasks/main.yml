@@ -1,0 +1,5 @@
+- name: Monitor nginx with Datadog
+  notify: restart datadog
+  template: src=datadog/conf.d/nginx.yaml.j2
+            dest=/etc/dd-agent/conf.d/nginx.yaml
+            owner=dd-agent group=nogroup mode=0600
