@@ -21,5 +21,6 @@
 
     - fpm
     - wordpress
+    - wordpress-jetpack
 
     - wordpress-custom

@@ -1,0 +1,7 @@
+---
+- name: Download the Wordpress Jetpack plugin
+  get_url:  url=http://downloads.wordpress.org/plugin/jetpack.2.5.zip
+            dest=/srv/jetpack.zip
+            # Changes every time, for some reason.
+            # sha256sum=
+  notify: upgrade wordpress-jetpack
