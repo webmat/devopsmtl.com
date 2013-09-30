@@ -1,4 +1,6 @@
-Prerequisites
+The website for DevOpsMtl is at [devopsmtl.com](http://www.devopsmtl.com).
+
+## Prerequisites
 
 ```
 brew install python ansible
