@@ -1,0 +1,5 @@
+- name: Configure nginx to trust Cloudflare as a reverse proxy
+  notify: reload nginx
+  template: src=etc/nginx/conf.d/cloudflare.conf.j2
+            dest=/etc/nginx/conf.d/cloudflare.conf
+            mode=0644

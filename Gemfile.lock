@@ -1,0 +1,12 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    excon (0.26.0)
+    thor (0.18.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  excon
+  thor
