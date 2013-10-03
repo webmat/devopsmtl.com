@@ -1,7 +1,7 @@
 ---
 
 - hosts: all
-  # accelerate: true
+  accelerate: true
   user: "{{admin_name}}"
   sudo: true
   vars_files:
