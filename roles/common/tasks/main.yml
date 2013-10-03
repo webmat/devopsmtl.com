@@ -13,6 +13,7 @@
     - nmap
     - htop
     - tree
+    - systemtap-sdt-dev # dtrace
     - iftop
     - iotop
     - zsh
