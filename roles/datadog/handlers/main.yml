@@ -1,2 +1,2 @@
 - name: restart datadog
-  shell: /etc/init.d/datadog-agent restart
+  service: name=datadog-agent state=restarted

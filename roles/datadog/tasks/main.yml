@@ -4,3 +4,5 @@
   template: src=root/install_datadog.sh dest=/root/install_datadog.sh mode=0700
 - name: Install DataDog agent
   command: /root/install_datadog.sh creates=/usr/share/datadog/agent/
+- name: Ensure the Datadog agent is running
+  service: name=datadog-agent state=started enabled=yes
