@@ -1,0 +1,45 @@
+# {{ansible_managed}}
+
+# View the Git repository at https://github.com/meskyanichi/backup
+# View the Wiki/Documentation at https://github.com/meskyanichi/backup/wiki
+# View the issue log at https://github.com/meskyanichi/backup/issues
+
+Backup::Model.new(:wordpress, 'Back up wordpress database') do
+  split_into_chunks_of 250 # Mb
+
+  database MySQL do |db|
+    # To dump all databases, set `db.name = :all` (or leave blank)
+    db.name               = "{{ wp_db_name }}"
+    db.username           = "{{ wp_db_user }}"
+    db.password           = "{{ wp_db_password }}"
+    db.socket             = "{{ mysql_socket }}"
+    db.additional_options = ["--quick", "--single-transaction"]
+  end
+
+  archive :uploads do |archive|
+    archive.root  '/srv/wordpress/wp-content/uploads/'
+    archive.add   '.'
+  end
+
+  compress_with Gzip
+
+  store_with S3 do |s3|
+    s3.region             = "us-west-2" # Oregon
+    s3.bucket             = "{{s3_bucket}}"
+    s3.access_key_id      = "{{s3_access_key_id}}"
+    s3.secret_access_key  = "{{s3_secret_access_key}}"
+    s3.keep               = 30
+    s3.path               = "devopsmtl.com"
+  end
+
+end
+
+# * * * * * * * * * * * * * * * * * * * *
+#        Do Not Edit Below Here.
+# All Configuration Should Be Made Above.
+
+##
+# Load all models from the models directory.
+Dir[File.join(File.dirname(Config.config_file), "models", "*.rb")].each do |model|
+  instance_eval(File.read(model))
+end

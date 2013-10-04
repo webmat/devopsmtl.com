@@ -1,0 +1,21 @@
+---
+- name: Install dependencies for nokogiri
+  apt: name=$item state=present
+  with_items:
+  - libxml2-dev
+  - libxslt1-dev
+
+- name: Install the backup gem
+  gem: name=backup state=present user_install=false
+
+- name: Create the backup config directory
+  file: state=directory recurse=true mode=0600 owner=root dest=/etc/backup/models
+
+- name: Create the main backup config file
+  template: src=etc/backup/config.rb.j2 dest=/etc/backup/config.rb
+
+- name: Cron job to back up Wordpress
+  cron: name="Perform backup" hour="1"
+        job="ruby /usr/local/bin/backup perform --config-file=/etc/backup/config.rb --trigger=wordpress >> /var/log/backup-wordpress.log"
+
+# TODO log rotate

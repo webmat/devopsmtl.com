@@ -23,3 +23,4 @@ wp_db_user: wp_domtl
 
 # You shouldn't need to change this.
 mysql_port: 3306
+mysql_socket: /var/run/mysqld/mysqld.sock
