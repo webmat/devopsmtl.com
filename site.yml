@@ -17,9 +17,6 @@
     - nginx
     - nginx-cloudflare
 
-    - datadog
-    - datadog-nginx
-
     - fpm
     - wordpress
     - wordpress-jetpack
@@ -28,3 +25,7 @@
 
     - backup
     - beaver
+
+    - datadog
+    - datadog-nginx
+    - datadog-mysql

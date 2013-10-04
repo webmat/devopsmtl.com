@@ -1,0 +1,13 @@
+---
+- name: install mysql python package
+  apt: name=python-mysqldb state=present
+
+- name: create mysql user for monitoring
+  mysql_user: user=$datadog_mysql_user password=$datadog_mysql_password
+              priv='*.*:replication client'
+
+- name: Monitor MySQL with Datadog
+  notify:   restart datadog
+  template: src=etc/dd-agent/conf.d/mysql.yaml.j2
+            dest=/etc/dd-agent/conf.d/mysql.yaml
+            owner=dd-agent group=nogroup mode=0600

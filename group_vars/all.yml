@@ -22,6 +22,8 @@ wp_sha256sum: 6a44302b6375c5e97ad116913d84610f4f0589dd9906d5d9166e66e5146f94d1
 wp_db_name: wp_domtl
 wp_db_user: wp_domtl
 
+datadog_mysql_user: datadog
+
 # You shouldn't need to change this.
 mysql_port: 3306
 mysql_socket: /var/run/mysqld/mysqld.sock
