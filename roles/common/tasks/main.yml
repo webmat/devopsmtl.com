@@ -43,17 +43,4 @@
         dest=/etc/apt/apt.conf.d/10periodic
 # https://help.ubuntu.com/community/AutomaticSecurityUpdates
 
-# NTP
-- name: Install ntp
-  apt: name=ntp state=present
-  tags: ntp
-
-- name: Configure ntp file
-  template: src=ntp.conf.j2 dest=/etc/ntp.conf
-  tags: ntp
-  notify: restart ntp
-
-- name: Start the ntp service
-  service: name=ntp state=started enabled=true
-  tags: ntp
-
+- include: ntp.yml
