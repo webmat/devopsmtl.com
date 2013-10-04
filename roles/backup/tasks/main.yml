@@ -15,7 +15,8 @@
   template: src=etc/backup/config.rb.j2 dest=/etc/backup/config.rb
 
 - name: Cron job to back up Wordpress
-  cron: name="Perform backup" hour="1"
+  cron: name="Perform backup" hour="6"
         job="ruby /usr/local/bin/backup perform --config-file=/etc/backup/config.rb --trigger=wordpress >> /var/log/backup-wordpress.log"
 
-# TODO log rotate
+- name: Log rotate the backup log
+  template: src=etc/logrotate.d/backup.j2 dest=/etc/logrotate.d/backup

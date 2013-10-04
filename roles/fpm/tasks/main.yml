@@ -15,3 +15,6 @@
   notify: restart fpm
 - lineinfile: dest=/etc/php5/fpm/pool.d/www.conf regexp=^listen line='listen = /var/run/php5-fpm.sock'
   notify: restart fpm
+
+- name: Logrotate the fpm log
+  template: src=etc/logrotate.d/fpm.j2 dest=/etc/logrotate.d/fpm
