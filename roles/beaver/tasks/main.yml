@@ -1,0 +1,3 @@
+---
+- name: Install beaver
+  pip: name=beaver state=present
