@@ -3,7 +3,7 @@
 server {
   # listen       80 default_server;
   listen       80;
-  server_name  {{ server_hostname }};
+  server_name  {{ nginx_server_hostname }};
   root /srv/wordpress/ ;
 
   client_max_body_size 64M;

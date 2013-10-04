@@ -47,3 +47,7 @@
             dest=/etc/nginx/sites-enabled/devopsmtl.com.conf
             owner=wordpress group=www-data mode=0644
   notify: reload nginx
+
+- name: make it easy to query the site locally
+  lineinfile: dest=/etc/hosts regexp='^127\.0\.0\.1'
+    line="127.0.0.1 localhost {{inventory_hostname_short}} {{server_hostname}}"

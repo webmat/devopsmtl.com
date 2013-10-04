@@ -10,7 +10,8 @@ ntp_servers:
 
 # This is used for the nginx server configuration, but # access to the
 # Wordpress site is not restricted by a # named host.
-server_hostname: "*.devopsmtl.com"
+server_hostname:        "www.devopsmtl.com"
+nginx_server_hostname:  "*.devopsmtl.com"
 
 # Which version of Wordpress to deploy
 wp_version: 3.6.1
