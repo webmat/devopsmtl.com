@@ -11,7 +11,8 @@ Initial bootstrapping
 
 ```
 ansible all -i hosts -u root -m ping # sanity check
-ansible-playbook -i hosts bootstrap.yml
+ansible-playbook -l "name*" -i hosts bootstrap.yml
+# Set the ansible_ssh_user in the inventory file
 ansible-playbook -i hosts site.yml
 ```
 
