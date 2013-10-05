@@ -25,11 +25,11 @@ Backup::Model.new(:wordpress, 'Back up wordpress database') do
 
   store_with S3 do |s3|
     s3.region             = "us-west-2" # Oregon
-    s3.bucket             = "{{s3_bucket}}"
-    s3.access_key_id      = "{{s3_access_key_id}}"
-    s3.secret_access_key  = "{{s3_secret_access_key}}"
+    s3.bucket             = "{{ s3_bucket }}"
+    s3.access_key_id      = "{{ s3_access_key_id }}"
+    s3.secret_access_key  = "{{ s3_secret_access_key }}"
     s3.keep               = 30
-    s3.path               = "devopsmtl.com"
+    s3.path               = "{{ inventory_hostname }}"
   end
 
 end
