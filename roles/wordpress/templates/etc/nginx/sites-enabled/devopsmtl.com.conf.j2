@@ -8,6 +8,8 @@ server {
 
   client_max_body_size 64M;
 
+  include conf.d/drop;
+
   # Deny access to any files with a .php extension in the uploads directory
   location ~* /(?:uploads|files)/.*\.php$ {
     deny all;
