@@ -1,0 +1,6 @@
+---
+- name: hostname file
+  template: src=etc/hostname dest=/etc/hostname mode=0644
+
+- name: hostname
+  shell: hostname $inventory_hostname

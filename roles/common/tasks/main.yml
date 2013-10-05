@@ -1,5 +1,6 @@
 ---
-# Common and vanity configs.
+- include: hostname.yml
+
 - name: install some admin packages
   apt: pkg=$item update_cache=yes cache_valid_time=3600 state=installed
   with_items:
