@@ -1,0 +1,4 @@
+---
+- name: authorize blitz.io to run this load test
+  copy: dest=/srv/wordpress/$blitz_io_authorization_file content=42
+        owner=wordpress group=wordpress mode=0644

@@ -23,6 +23,7 @@
     - wordpress
     - wordpress-jetpack
 
+    - nginx-blitz-io
     - wordpress-custom
 
     - backup
