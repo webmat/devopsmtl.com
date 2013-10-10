@@ -7,4 +7,4 @@
     - ruby1.9.1-dev
 
 - name: install gems faster
-  file: dest=/etc/gemrc content="gem: --no-ri --no-rdoc"
+  copy: 'dest=/etc/gemrc content="gem: --no-ri --no-rdoc"'
