@@ -9,12 +9,13 @@
 
   roles:
     # TODO idempotency
-    # - firewall # make idempotent.
-    # - bootstrap # make fw rule for accelerate idempotent
+    - firewall # make idempotent.
+    - bootstrap # make fw rule for accelerate idempotent
 
     - common
     - ruby
     - mysql
+
     - nginx
     - nginx-cloudflare
 
