@@ -12,10 +12,11 @@ Initial bootstrapping
 ```
 ansible all -i hosts -u root -m ping # sanity check
 ansible-playbook -l "name*" -i hosts bootstrap.yml
-# Set the ansible_ssh_user in the inventory file
+
+# And either
 ansible-playbook -i hosts site.yml
 # or
-ansible-playbook -i dev site.yml --extra-vars "server_hostname=test.devopsmtl.com"
+ansible-playbook -l "name*" -i hosts site.yml --extra-vars "server_hostname=test.devopsmtl.com"
 ```
 
 Remote manual interventions
