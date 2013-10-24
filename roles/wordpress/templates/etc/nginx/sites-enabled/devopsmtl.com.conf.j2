@@ -10,6 +10,21 @@ server {
 
   include conf.d/drop;
 
+  # LOL headers
+  add_header x-devops-enthusiast "Mention this header to webmat@gmail.com and get a free copy of The Phoenix Project!";
+  add_header X-Powered-By "Some serious muscle";
+
+  # A few security headers
+  # This site can only be embedded in an iframe on this site.
+  add_header X-Frame-Options "SAMEORIGIN";
+  # Huge yak shave
+  # add_header Content-Security-Policy-Report-Only "default-src 'self'; img-src *; style-src 'unsafe-inline'; script-src 'unsafe-inline' 'unsafe-eval'";
+
+  # Protect people using an invalid browser.
+  add_header X-XSS-Protection "1; mode=block";
+  add_header X-Content-Type-Options "nosniff";
+
+
   # Deny access to any files with a .php extension in the uploads directory
   location ~* /(?:uploads|files)/.*\.php$ {
     deny all;
