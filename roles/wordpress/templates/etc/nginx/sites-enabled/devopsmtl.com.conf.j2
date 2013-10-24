@@ -18,7 +18,8 @@ server {
   # This site can only be embedded in an iframe on this site.
   add_header X-Frame-Options "SAMEORIGIN";
   # Huge yak shave
-  # add_header Content-Security-Policy-Report-Only "default-src 'self'; img-src *; style-src 'unsafe-inline'; script-src 'unsafe-inline' 'unsafe-eval'";
+  # add_header Content-Security-Policy "default-src 'self'; img-src *; style-src 'unsafe-inline'; script-src 'unsafe-inline' 'unsafe-eval'";
+  add_header Content-Security-Policy-Report-Only "default-src 'self'; img-src *; style-src 'self' 'unsafe-inline' http://fonts.googleapis.com http://*.wp.com http://themes.googleusercontent.com http://s.gravatar.com; font-src 'self' data: http://themes.googleusercontent.com http://fonts.googleapis.com http://*.wp.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://ajax.cloudflare.com http://www.google-analytics.com http://*.wp.com http://s.gravatar.com; frame-src 'self' http://akismet.com http://dashboard.wordpress.com https://www.google.com https://widgets.wp.com; connect-src 'self' http://*.wordpress.com";
 
   # Protect people using an invalid browser.
   add_header X-XSS-Protection "1; mode=block";
