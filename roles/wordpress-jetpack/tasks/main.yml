@@ -1,7 +1,11 @@
 ---
 - name: Download the Wordpress Jetpack plugin
-  get_url:  url=http://downloads.wordpress.org/plugin/jetpack.2.5.zip
-            dest=/srv/jetpack.zip
-            # Changes every time, for some reason.
+  get_url:  url=http://downloads.wordpress.org/plugin/jetpack.{{ jetpack_version }}.zip
+            dest=/srv/jetpack.{{ jetpack_version }}.zip
+            # Changes every request, for some reason. Can't check the SHA :-(
             # sha256sum=
-  notify: upgrade wordpress-jetpack
+- name: install wordpress-jetpack
+  command:  chdir=/srv/wordpress/wp-content/plugins
+            unzip /srv/jetpack.{{ jetpack_version }}.zip
+            creates=/srv/wordpress/wp-content/plugins/jetpack
+  notify: restart fpm

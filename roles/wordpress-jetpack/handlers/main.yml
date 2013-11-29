@@ -1,4 +1,0 @@
-- name: upgrade wordpress-jetpack
-  command:  chdir=/srv/wordpress/wp-content/plugins
-            unzip /srv/jetpack.zip
-  notify: restart fpm
