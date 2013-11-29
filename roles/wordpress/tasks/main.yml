@@ -2,7 +2,7 @@
 - name: download wordpress
   get_url:  url=http://wordpress.org/wordpress-{{ wp_version }}.tar.gz
             dest=/srv/wordpress-{{ wp_version }}.tar.gz
-            sha256sum={{ wp_sha256sum }}
+            sha256sum={{ wp_version_sha256sum }}
 
 - name: extract archive
   command: chdir=/srv/ /bin/tar xvf wordpress-{{ wp_version }}.tar.gz creates=/srv/wordpress

@@ -14,9 +14,9 @@ server_hostname:        "www.devopsmtl.com"
 nginx_server_hostname:  "*.devopsmtl.com"
 
 # Which version of Wordpress to deploy
-wp_version: 3.6.1
-# Find the SHA with `shasum -a 256 wordpress-3.6.1.tar.gz`
-wp_sha256sum: 6a44302b6375c5e97ad116913d84610f4f0589dd9906d5d9166e66e5146f94d1
+wp_version: 3.7.1
+wp_version_sha256sum: 6f6bae8759bf3e115cd85de4204b062aeaac63ceb030fc26a9c561474aa64dd4
+# Find the SHA with `shasum -a 256 wordpress-*.tar.gz`
 
 # These are the Wordpress database settings
 wp_db_name: wp_domtl
