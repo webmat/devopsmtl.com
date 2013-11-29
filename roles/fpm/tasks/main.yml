@@ -2,9 +2,11 @@
 - name: install php-fpm and deps
   apt: pkg=$item state=present
   with_items:
-    - libapache2-mod-auth-mysql
     - php5-mysql
     - php5-fpm
+
+- name: create the conf.d for PHP
+  file: state=directory dest=/etc/php5/conf.d/ mode=0755 owner=root
 
 # - name: Disable default pool
 #   command: mv /etc/php-fpm.d/www.conf /etc/php-fpm.d/www.disabled creates=/etc/php-fpm.d/www.disabled

@@ -14,6 +14,7 @@
     - nmap
     - htop
     - tree
+    - unzip
     - systemtap-sdt-dev # dtrace
     - iftop
     - iotop
