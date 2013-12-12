@@ -24,6 +24,7 @@ ansible-playbook -l "name*" -i hosts bootstrap.yml
 
 # And either
 ansible-playbook -i hosts site.yml
+ansible-playbook -i hosts site.yml --tags=jetpack
 # or
 ansible-playbook -l "name*" -i hosts site.yml --extra-vars "server_hostname=test.devopsmtl.com"
 ```
