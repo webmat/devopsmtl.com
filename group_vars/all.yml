@@ -22,7 +22,7 @@ wp_version_sha256sum: 6f6bae8759bf3e115cd85de4204b062aeaac63ceb030fc26a9c561474a
 wp_db_name: wp_domtl
 wp_db_user: wp_domtl
 
-jetpack_version: 2.6.1
+jetpack_version: 2.7
 
 datadog_mysql_user: datadog
 
