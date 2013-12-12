@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  accelerate: true
+  user: "{{admin_name}}"
+  sudo: true
+  vars_files:
+  - vars/secrets.yml
+
+  tasks:
+    - name: perform the backup
+      command: /usr/local/bin/backup perform --config-file=/etc/backup/config.rb --trigger=wordpress

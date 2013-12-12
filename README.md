@@ -40,7 +40,13 @@ ansible all --sudo -i hosts -m service -a "name=mysql state=restarted"
 
 ## Backups
 
-### Trigger a backup manually
+### Trigger a backup from workstation
+
+```bash
+thor backup perform
+```
+
+### Trigger a backup from the server
 
 ```
 sudo backup perform --config-file=/etc/backup/config.rb --trigger=wordpress

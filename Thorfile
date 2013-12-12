@@ -6,6 +6,13 @@ Bundler.require
 class Default < Thor
 end
 
+class Backup < Thor
+  desc "perform", "Performs the backup task immediately"
+  def perform
+    system "ansible-playbook -i hosts backup.yml"
+  end
+end
+
 class Cloudflare < Thor
 
   desc "refresh", "Refreshes the Cloudflare trusted addresses"
