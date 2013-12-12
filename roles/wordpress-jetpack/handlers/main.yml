@@ -1,0 +1,18 @@
+---
+
+- name: uninstall jetpack
+  file: state=absent path=/srv/wordpress/wp-content/plugins/jetpack
+
+- name: install jetpack
+  command:  chdir=/srv/wordpress/wp-content/plugins
+            unzip /srv/jetpack.{{ jetpack_version }}.zip
+            creates=/srv/wordpress/wp-content/plugins/jetpack
+  notify:
+    - clean up other versions
+    - restart fpm
+
+# Ensure a version that's no longer used gets removed.
+# This allows going back & forth between versions.
+- name: clean up other versions
+  shell:
+    find /srv/ -name "jetpack.*.zip" | grep -v jetpack.{{ jetpack_version }}.zip | xargs rm

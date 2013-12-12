@@ -4,8 +4,7 @@
             dest=/srv/jetpack.{{ jetpack_version }}.zip
             # Changes every request, for some reason. Can't check the SHA :-(
             # sha256sum=
-- name: install wordpress-jetpack
-  command:  chdir=/srv/wordpress/wp-content/plugins
-            unzip /srv/jetpack.{{ jetpack_version }}.zip
-            creates=/srv/wordpress/wp-content/plugins/jetpack
-  notify: restart fpm
+  notify:
+    - uninstall jetpack
+    - install jetpack
+  tags: jetpack
