@@ -8,6 +8,6 @@
   template: src=etc/hostname dest=/etc/hostname mode=0644
 
 - name: hostname
-  shell: hostname $inventory_hostname
+  shell: hostname {{ inventory_hostname }}
   changed_when: false # FIXME
   # when: $previous_hostname[0] != $inventory_hostname

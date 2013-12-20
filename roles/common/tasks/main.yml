@@ -2,7 +2,7 @@
 - include: hostname.yml
 
 - name: install some admin packages
-  apt: pkg=$item update_cache=yes cache_valid_time=3600 state=installed
+  apt: pkg={{ item }} update_cache=yes cache_valid_time=3600 state=installed
   with_items:
     - sudo
     - language-pack-en # locale woes on official Ubuntu Vagrant VM

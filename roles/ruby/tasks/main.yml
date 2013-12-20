@@ -1,7 +1,7 @@
 ---
 
 - name: install ruby-related packages
-  apt: pkg=$item update_cache=yes cache_valid_time=3600 state=installed
+  apt: pkg={{ item }} update_cache=yes cache_valid_time=3600 state=installed
   with_items:
     - ruby
     - ruby1.9.1-dev

@@ -1,5 +1,5 @@
 - name: install mysql server
-  apt: pkg=$item state=present
+  apt: pkg={{ item }} state=present
   with_items:
   - mysql-server
   - python-mysqldb

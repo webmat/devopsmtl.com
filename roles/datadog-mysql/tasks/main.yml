@@ -3,7 +3,8 @@
   apt: name=python-mysqldb state=present
 
 - name: create mysql user for monitoring
-  mysql_user: user=$datadog_mysql_user password=$datadog_mysql_password
+  mysql_user: user={{ datadog_mysql_user }}
+              password={{ datadog_mysql_password }}
               priv='*.*:replication client'
 
 - name: Monitor MySQL with Datadog
