@@ -15,4 +15,4 @@
 # This allows going back & forth between versions.
 - name: clean up other versions
   shell:
-    find /srv/ -name "jetpack.*.zip" | grep -v jetpack.{{ jetpack_version }}.zip | xargs rm
+    find /srv/ -name "jetpack.*.zip" | grep -v jetpack.{{ jetpack_version }}.zip | xargs rm -f
