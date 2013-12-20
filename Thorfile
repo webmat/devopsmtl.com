@@ -8,8 +8,12 @@ end
 
 class Backup < Thor
   desc "perform", "Performs the backup task immediately"
+  option :limit, aliases: '-l', type: :string
   def perform
-    system "ansible-playbook -i hosts backup.yml"
+    limit = if options[:limit]
+              "-l #{options[:limit]}"
+            end
+    system "ansible-playbook #{limit} -i hosts backup.yml"
   end
 end
 
