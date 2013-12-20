@@ -9,24 +9,34 @@ pip install python-keyczar==0.71c
 
 ## Installation
 
-Enter the host in the `hosts` file, and verify connectivity:
+Enter the host in the `hosts` file. Here's an example:
+
+```ini
+[prod]
+myserver.com
+
+[next]
+mynextserver.com
+```
+
+Verify connectivity:
 
 ```
 ansible all -i hosts -u root -m ping # sanity check
-# or
-ansible "name*" -i hosts -u root -m ping
+# or target only a section
+ansible next -i hosts -u root -m ping
 ```
 
 Initial bootstrapping
 
 ```
-ansible-playbook -l "name*" -i hosts bootstrap.yml
+ansible-playbook -l next -i hosts bootstrap.yml
 
 # And either
 ansible-playbook -i hosts site.yml
 ansible-playbook -i hosts site.yml --tags=jetpack
 # or
-ansible-playbook -l "name*" -i hosts site.yml --extra-vars "server_hostname=test.devopsmtl.com"
+ansible-playbook -l next -i hosts site.yml --extra-vars "server_hostname=test.devopsmtl.com"
 ```
 
 Remote manual interventions
@@ -43,7 +53,9 @@ ansible all --sudo -i hosts -m service -a "name=mysql state=restarted"
 ### Trigger a backup from workstation
 
 ```bash
-thor backup perform
+thor backup:perform
+# or limit like Ansible
+thor backup:perform -l prod
 ```
 
 ### Trigger a backup from the server
