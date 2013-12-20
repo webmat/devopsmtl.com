@@ -22,9 +22,10 @@ mynextserver.com
 Verify connectivity:
 
 ```
-ansible all -i hosts -u root -m ping # sanity check
-# or target only a section
+# ping an unprovisioned node
 ansible next -i hosts -u root -m ping
+# or a provisioned node
+ansible prod -i hosts -u dieu -m ping
 ```
 
 Initial bootstrapping
