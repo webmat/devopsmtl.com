@@ -12,16 +12,18 @@
     - fail2ban
     - curl
     - nmap
+    - glances
     - htop
+    - iftop
+    - iotop
     - tree
     - unzip
     - systemtap-sdt-dev # dtrace
-    - iftop
-    - iotop
     - zsh
     - git
     - build-essential
     - vim
+    - pv
     - rsync
     - python-pip
 
