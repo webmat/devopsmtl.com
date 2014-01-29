@@ -76,6 +76,17 @@ gunzip wordpress/databases/MySQL.sql.gz
 sudo mysql wp_domtl < wordpress/databases/MySQL.sql
 ```
 
+## Testing a new server on test.devopsmtl.com
+
+```
+# Check state
+sudo mysql wp_domtl -e 'select * from wp_options where option_value like "%www.devopsmtl.com%" \G'
+# Point wordpress to test.devopsmtl.com
+sudo mysql wp_domtl -e "update wp_options set option_value = 'http://test.devopsmtl.com' where option_name in ('home', 'siteurl');"
+# Point wordpress back to www.devopsmtl.com
+sudo mysql wp_domtl -e "update wp_options set option_value = 'http://www.devopsmtl.com' where option_name in ('home', 'siteurl');"
+```
+
 ## Sysadmin
 
 ```
