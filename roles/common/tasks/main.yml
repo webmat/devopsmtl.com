@@ -12,6 +12,7 @@
     - fail2ban
     - curl
     - nmap
+    - strace
     - glances
     - htop
     - iftop
